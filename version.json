@@ -1,10 +1,10 @@
 {
-  "versionCode": 10,
-  "versionName": "1.1.0",
-  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.1.0.apk",
+  "versionCode": 11,
+  "versionName": "1.1.1",
+  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.1.1.apk",
   "whatsNew": [
     "Hata düzeltmeleri ve performans iyileştirmeleri",
-    "UI hataları giderildi",
+    "UI hataları giderildi,Chat hataları giderildi.",
     "Yapay zeka modellemesine yeni özellikler eklendi"
   ]
 }
