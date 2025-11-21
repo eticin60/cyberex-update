@@ -2,877 +2,208 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>CyberEx – Next-Gen Crypto Exchange</title>
+  <title>CyberEx – Coming Soon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
+  
   <style>
     :root {
       --bg: #020812;
-      --bg-soft: #041017;
-      --panel: #050d16;
-      --panel-soft: #071821;
       --accent: #22c55e;
-      --accent-soft: #16a34a;
-      --accent-alt: #22e3b6;
-      --border-soft: rgba(148, 163, 184, 0.45);
+      --accent2: #22e3b6;
       --muted: #9ca3af;
       --text: #e5e7eb;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     html, body {
-      height: 100%;
-      overflow: hidden; /* TEK EKRAN */
+      height:100%;
+      overflow:hidden;
+      font-family:"Poppins",sans-serif;
+      background: radial-gradient(circle at top,#04121f,#000 55%);
+      color:var(--text);
     }
 
-    body {
-      font-family: "Poppins", sans-serif;
-      background:
-        radial-gradient(circle at top, #04121f 0, #000 55%),
-        radial-gradient(circle at bottom, #020617 0, #000 70%);
-      color: var(--text);
-      position: relative;
-    }
-
-    /* BACKGROUND GRID / LINES */
-    .bg-grid {
-      position: fixed;
-      inset: 0;
+    /* ARKA PLAN GRID */
+    .bg-grid{
+      position:fixed;
+      inset:0;
       background-image:
-        linear-gradient(to right, rgba(15, 23, 42, 0.6) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.6) 1px, transparent 1px);
-      background-size: 90px 90px;
-      opacity: 0.4;
-      mix-blend-mode: soft-light;
-      pointer-events: none;
-      z-index: 0;
+        linear-gradient(to right,rgba(15,23,42,0.5) 1px,transparent 1px),
+        linear-gradient(to bottom,rgba(15,23,42,0.5) 1px,transparent 1px);
+      background-size:90px 90px;
+      opacity:0.4;
+      mix-blend-mode:soft-light;
+      pointer-events:none;
+      z-index:0;
     }
 
-    .bg-lines {
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.2), transparent 60%),
-        radial-gradient(circle at 90% 70%, rgba(34, 197, 94, 0.28), transparent 65%);
-      opacity: 0.7;
-      pointer-events: none;
-      z-index: 0;
+    .orb{
+      position:fixed;
+      width:360px;height:360px;
+      border-radius:999px;
+      filter:blur(35px);
+      pointer-events:none;
+      opacity:0.7;
+      z-index:0;
+    }
+    .orb.left{
+      top:-80px;left:-60px;
+      background:radial-gradient(circle,rgba(34,197,94,.75),transparent 65%);
+      animation:float1 18s ease-in-out infinite alternate;
+    }
+    .orb.right{
+      bottom:-100px;right:-40px;
+      background:radial-gradient(circle,rgba(45,212,191,.75),transparent 65%);
+      animation:float2 22s ease-in-out infinite alternate;
     }
 
-    .glow-orb {
-      position: fixed;
-      width: 320px;
-      height: 320px;
-      border-radius: 999px;
-      filter: blur(32px);
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.7;
+    @keyframes float1{0%{transform:translate(0)}100%{transform:translate(30px,-30px)}}
+    @keyframes float2{0%{transform:translate(0)}100%{transform:translate(-40px,20px)}}
+
+    .container{
+      position:relative;
+      z-index:2;
+      height:100%;
+      width:100%;
+      padding:40px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
     }
 
-    .glow-orb.orb-left {
-      background: radial-gradient(circle, rgba(34, 197, 94, 0.7), transparent 60%);
-      top: -80px;
-      left: -40px;
-      animation: orbFloat 20s ease-in-out infinite alternate;
-    }
-
-    .glow-orb.orb-right {
-      background: radial-gradient(circle, rgba(45, 212, 191, 0.7), transparent 60%);
-      bottom: -90px;
-      right: -50px;
-      animation: orbFloat 24s ease-in-out infinite alternate-reverse;
-    }
-
-    @keyframes orbFloat {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(30px, -25px, 0); }
-    }
-
-    /* MAIN SHELL */
-    .shell {
-      position: relative;
-      z-index: 1;
-      height: 100vh;
-      width: 100vw;
-      padding: 28px clamp(20px, 4vw, 56px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* NAVBAR */
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 12px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .brand-logo-wrap {
-      width: 72px;
-      height: 72px;
-      border-radius: 999px;
-      background: radial-gradient(circle, #022c22, #020617);
+    .logo-wrap{
+      width:160px;height:160px;
+      border-radius:999px;
+      background:radial-gradient(circle,#022c22,#020617);
       box-shadow:
-        0 0 0 2px rgba(34, 197, 94, 0.5),
-        0 0 26px rgba(34, 197, 94, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+        0 0 0 3px rgba(34,197,94,0.5),
+        0 0 32px rgba(34,197,94,0.8);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom:24px;
+    }
+    .logo-wrap img{
+      width:78%;height:auto;object-fit:contain;
+      filter:drop-shadow(0 0 12px rgba(34,197,94,0.9));
+    }
+
+    .title{
+      font-size:3rem;
+      font-weight:800;
+      line-height:1.1;
+      margin-bottom:18px;
+    }
+    .title span{
+      background:linear-gradient(90deg,#22c55e,#4ade80,#22e3b6);
+      -webkit-background-clip:text;
+      color:transparent;
+      text-shadow:0 0 16px rgba(34,197,94,0.8);
+    }
+
+    .subtitle{
+      font-size:1rem;
+      max-width:520px;
+      margin:auto;
+      margin-bottom:32px;
+      color:var(--muted);
+    }
+
+    .cta-row{
+      display:flex;
+      gap:16px;
+      margin-bottom:36px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .btn-primary{
+      padding:11px 26px;
+      border-radius:999px;
+      border:none;
+      background:radial-gradient(circle at top left,#22c55e,#22e3b6);
+      color:#ecfdf5;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.82rem;
+      font-weight:600;
+      box-shadow:0 0 22px rgba(34,197,94,0.8);
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .btn-primary:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
+      transform:translateX(-120%);
+      animation:shine 2.4s infinite;
+    }
+    @keyframes shine{
+      0%{transform:translateX(-120%);}
+      60%{transform:translateX(140%);}
+      100%{transform:translateX(140%);}
+    }
+
+    .btn-outline{
+      padding:11px 24px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.8);
+      color:var(--text);
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      cursor:pointer;
+    }
+    .btn-outline:hover{
+      border-color:var(--accent);
+      box-shadow:0 0 18px rgba(34,197,94,0.7);
+    }
+
+    .bottom-text{
+      margin-top:18px;
+      font-size:0.92rem;
+      color:var(--muted);
+      letter-spacing:.06em;
     }
 
-    .brand-logo-wrap img {
-      width: 80%;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 0 18px rgba(16, 185, 129, 0.9));
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .brand-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .brand-sub {
-      font-size: 0.75rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .nav-badge {
-      font-size: 0.7rem;
-      padding: 5px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 197, 94, 0.7);
-      background: radial-gradient(circle at left, rgba(16, 185, 129, 0.45), rgba(2, 6, 23, 0.95));
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #bbf7d0;
-    }
-
-    .nav-badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 12px #22c55e;
-      animation: statusPing 1.8s infinite;
-    }
-
-    @keyframes statusPing {
-      0% { transform: scale(1); opacity: 1; }
-      70% { transform: scale(2); opacity: 0; }
-      100% { opacity: 0; }
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .nav-link {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      padding-bottom: 4px;
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--accent), var(--accent-alt));
-      border-radius: 999px;
-      transition: width 0.2s ease;
-    }
-
-    .nav-link:hover {
-      color: var(--text);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .btn-outline {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.7));
-      color: var(--text);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: all 0.18s ease;
-    }
-
-    .btn-outline span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.9);
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 16px rgba(34, 197, 94, 0.8);
-      transform: translateY(-1px);
-    }
-
-    /* MAIN CONTENT */
-    .main {
-      flex: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      gap: clamp(24px, 4vw, 40px);
-      align-items: center;
-    }
-
-    /* LEFT SIDE */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      max-width: 560px;
-    }
-
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .hero-label-pill {
-      padding: 4px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 197, 94, 0.7);
-      background: radial-gradient(circle at left, rgba(21, 128, 61, 0.7), rgba(2, 6, 23, 0.96));
-      color: #bbf7d0;
-    }
-
-    .hero-title {
-      font-size: clamp(2.2rem, 3vw + 1rem, 3.2rem);
-      line-height: 1.05;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-
-    .hero-title span.accent {
-      background: linear-gradient(90deg, #22c55e, #4ade80, #22e3b6);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 18px rgba(34, 197, 94, 0.9);
-    }
-
-    .hero-subtitle {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 480px;
-    }
-
-    .hero-subtitle strong {
-      color: #e5f3ff;
-      font-weight: 500;
-    }
-
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 4px;
-    }
-
-    .btn-primary {
-      position: relative;
-      font-size: 0.84rem;
-      padding: 11px 26px;
-      border-radius: 999px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-weight: 500;
-      color: #ecfdf5;
-      background: radial-gradient(circle at top left, #22c55e, #22e3b6);
-      box-shadow:
-        0 0 24px rgba(16, 185, 129, 0.8),
-        0 0 60px rgba(6, 95, 70, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      overflow: hidden;
-    }
-
-    .btn-primary::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(248, 250, 252, 0.6), transparent);
-      transform: translateX(-120%);
-      animation: shine 2.4s ease-in-out infinite;
-    }
-
-    @keyframes shine {
-      0% { transform: translateX(-120%); }
-      60% { transform: translateX(140%); }
-      100% { transform: translateX(140%); }
-    }
-
-    .btn-primary-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      border: 1px solid rgba(248, 250, 252, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.64rem;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-      font-size: 0.75rem;
-      color: var(--muted);
-      align-items: center;
-    }
-
-    .hero-meta-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.9);
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
-    }
-
-    .hero-tags {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag-pill {
-      font-size: 0.7rem;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      color: #e5f3ff;
-      background: rgba(5, 15, 25, 0.92);
-    }
-
-    /* RIGHT SIDE PANEL */
-    .panel-wrapper {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .dashboard-card {
-      position: relative;
-      width: 100%;
-      max-width: 580px;
-      border-radius: 26px;
-      padding: 18px 18px 16px;
-      background: radial-gradient(circle at top left, rgba(8, 47, 35, 0.85), rgba(5, 12, 19, 0.96));
-      border: 1px solid rgba(34, 197, 94, 0.5);
-      box-shadow:
-        0 0 40px rgba(6, 78, 59, 0.9),
-        0 0 80px rgba(16, 185, 129, 0.6);
-      overflow: hidden;
-    }
-
-    .dashboard-glow {
-      position: absolute;
-      inset: -30%;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(22, 163, 74, 0.4), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(45, 212, 191, 0.4), transparent 55%);
-      opacity: 0.65;
-      pointer-events: none;
-    }
-
-    .dashboard-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .dash-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-
-    .dash-profile {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .dash-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      border: 1px solid rgba(52, 211, 153, 0.7);
-      background: radial-gradient(circle, #022c22, #020617);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-    }
-
-    .dash-avatar img {
-      width: 80%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .dash-profile-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .dash-name {
-      font-size: 0.84rem;
-      font-weight: 500;
-    }
-
-    .dash-sub {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    .dash-status {
-      font-size: 0.7rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 197, 94, 0.7);
-      background: radial-gradient(circle at left, rgba(21, 128, 61, 0.7), rgba(6, 12, 23, 0.96));
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #bbf7d0;
-    }
-
-    .dash-status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px #22c55e;
-    }
-
-    .dash-code {
-      margin-top: 4px;
-      border-radius: 18px;
-      padding: 10px 12px;
-      background: rgba(3, 15, 23, 0.96);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.7rem;
-      color: #e5e7eb;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .dash-code-tabs {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-
-    .dot-red, .dot-yellow, .dot-green {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-    }
-
-    .dot-red { background: #f97373; }
-    .dot-yellow { background: #facc15; }
-    .dot-green { background: #22c55e; }
-
-    .dash-code pre {
-      white-space: pre;
-      color: #a5b4fc;
-    }
-
-    .dash-code span.str {
-      color: #facc15;
-    }
-
-    .dash-code span.key {
-      color: #22c55e;
-    }
-
-    .dash-code span.val {
-      color: #38bdf8;
-    }
-
-    .dash-bottom {
-      margin-top: 10px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .tile {
-      border-radius: 18px;
-      padding: 10px 10px;
-      background: rgba(2, 10, 18, 0.92);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 4px;
-      font-size: 0.75rem;
-    }
-
-    .tile-label {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.65rem;
-      color: var(--muted);
-    }
-
-    .tile-main {
-      font-size: 0.92rem;
-      font-weight: 500;
-    }
-
-    .tile-tag {
-      font-size: 0.7rem;
-      color: #bbf7d0;
-    }
-
-    .tile-positive {
-      color: #4ade80;
-    }
-
-    .tile-negative {
-      color: #fb7185;
-    }
-
-    .tile-pill {
-      margin-top: 3px;
-      font-size: 0.68rem;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(34, 197, 94, 0.6);
-      color: #a7f3d0;
-      align-self: flex-start;
-    }
-
-    /* FOOTER */
-    .footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      font-size: 0.72rem;
-      color: var(--muted);
-      border-top: 1px solid rgba(15, 23, 42, 0.9);
-      padding-top: 8px;
-      margin-top: 6px;
-    }
-
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .footer-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.9);
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: var(--text);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1060px) {
-      .main {
-        grid-template-columns: minmax(0, 1fr);
-        grid-auto-rows: auto;
-      }
-
-      .panel-wrapper {
-        justify-content: flex-start;
-      }
-
-      .dashboard-card {
-        max-width: 540px;
-      }
-    }
-
-    @media (max-width: 840px) {
-      .shell {
-        padding: 18px 18px 14px;
-      }
-
-      .nav-right .nav-link {
-        display: none;
-      }
-
-      .brand-logo-wrap {
-        width: 60px;
-        height: 60px;
-      }
-
-      .hero {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-height: 720px) {
-      .hero-subtitle {
-        font-size: 0.86rem;
-      }
-      .hero-tags {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- Background decoration -->
   <div class="bg-grid"></div>
-  <div class="bg-lines"></div>
-  <div class="glow-orb orb-left"></div>
-  <div class="glow-orb orb-right"></div>
+  <div class="orb left"></div>
+  <div class="orb right"></div>
 
-  <div class="shell">
-    <!-- NAVBAR -->
-    <header class="nav">
-      <div class="brand">
-        <div class="brand-logo-wrap">
-          <!-- LOGO DOSYANI BURAYA KOY -->
-          <!-- Örn: cyberex-logo.png olarak kaydedip src'yi değiştir -->
-          <img src="LOGOs CyberEx.png" alt="CyberEx Logo" />
-        </div>
-        <div class="brand-text">
-          <div class="brand-title">CYBEREX</div>
-          <div class="brand-sub">NEXT-GEN CRYPTO EXCHANGE</div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="LOGOs CyberEx.png" alt="CyberEx">
+    </div>
 
-      <div class="nav-right">
-        <span class="nav-badge">
-          <span class="nav-badge-dot"></span>
-          LIVE · BETA ACCESS
-        </span>
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#wallet" class="nav-link">Web3 Wallet</a>
-        <a href="#docs" class="nav-link">API Docs</a>
-        <button class="btn-outline">
-          <span class="dot"></span>
-          <span>Sign In</span>
-        </button>
-      </div>
-    </header>
+    <h1 class="title">
+      CyberEx <span>Coming Soon</span>
+    </h1>
 
-    <!-- MAIN CONTENT -->
-    <main class="main">
-      <!-- LEFT HERO -->
-      <section class="hero">
-        <div class="hero-label">
-          <span class="hero-label-pill">CRYPTO EXCHANGE</span>
-          <span>Spot · Futures · Web3 Wallet</span>
-        </div>
+    <p class="subtitle">
+      Yeni nesil kripto borsamız üzerinde çalışıyoruz.  
+      Ultra hızlı işlem motoru, Web3 cüzdan entegrasyonu ve çoklu zincir desteği ile yakında hizmetinizde.
+    </p>
 
-        <h1 class="hero-title">
-          Trade at<br />
-          <span class="accent">exchange-grade speed</span><br />
-          with self-custody freedom.
-        </h1>
+    <div class="cta-row">
+      <button class="btn-primary">Bizi Takip Et</button>
+      <button class="btn-outline">İletişim</button>
+    </div>
 
-        <p class="hero-subtitle">
-          CyberEx, <strong>kurumsal seviye matching engine</strong> ile
-          <strong>non-custodial Web3 cüzdanı</strong>nı birleştiren yeni nesil kripto
-          borsasıdır. Tek ekrandan spot, futures ve on-chain işlemlerini yönet.
-        </p>
-
-        <div class="hero-cta-row">
-          <button class="btn-primary">
-            <span>LAUNCH EXCHANGE</span>
-            <span class="btn-primary-icon">⟶</span>
-          </button>
-
-          <button class="btn-outline">
-            <span class="dot"></span>
-            <span>Connect Web3 Wallet</span>
-          </button>
-        </div>
-
-        <div class="hero-meta">
-          <span class="hero-meta-dot"></span>
-          <span>Simulation mode by default · Mainnet connections soon</span>
-        </div>
-
-        <div class="hero-tags">
-          <span class="tag-pill">Ultra-Low Latency Engine</span>
-          <span class="tag-pill">Multi-Chain Liquidity (ETH · BSC · Tron)</span>
-          <span class="tag-pill">On-chain Proof-of-Reserves</span>
-          <span class="tag-pill">API-First Architecture</span>
-        </div>
-      </section>
-
-      <!-- RIGHT PANEL -->
-      <section class="panel-wrapper">
-        <div class="dashboard-card">
-          <div class="dashboard-glow"></div>
-
-          <div class="dashboard-inner">
-            <div class="dash-header">
-              <div class="dash-profile">
-                <div class="dash-avatar">
-                  <!-- İstersen tekrar aynı logoyu ya da küçük bir ikon kullan -->
-                  <img src="LOGOs CyberEx.png" alt="CyberEx" />
-                </div>
-                <div class="dash-profile-text">
-                  <span class="dash-name">CyberEx Core</span>
-                  <span class="dash-sub">Real-Time Engine Snapshot</span>
-                </div>
-              </div>
-              <div class="dash-status">
-                <span class="dash-status-dot"></span>
-                Engine: Online
-              </div>
-            </div>
-
-            <div class="dash-code">
-              <div class="dash-code-tabs">
-                <span class="dot-red"></span>
-                <span class="dot-yellow"></span>
-                <span class="dot-green"></span>
-              </div>
-<pre>
-<span class="key">const</span> <span class="val">exchange</span> = {
-  <span class="key">name</span>: <span class="str">"CyberEx"</span>,
-  <span class="key">mode</span>: <span class="str">"Non-Custodial"</span>,
-  <span class="key">chains</span>: [<span class="str">"Ethereum"</span>, <span class="str">"BSC"</span>, <span class="str">"Tron"</span>],
-  <span class="key">latency</span>: <span class="str">"&lt; 5ms"</span>,
-  <span class="key">proofOfReserves</span>: <span class="str">"On-Chain"</span>
-};
-</pre>
-            </div>
-
-            <div class="dash-bottom">
-              <div class="tile">
-                <div class="tile-label">BTC / USDT</div>
-                <div class="tile-main">$ 63,842.19</div>
-                <div class="tile-tag tile-positive">+3.84% 24h</div>
-                <div class="tile-pill">Cross-Margin · Multi-Chain</div>
-              </div>
-
-              <div class="tile">
-                <div class="tile-label">ENGINE STATUS</div>
-                <div class="tile-main">3.2ms</div>
-                <div class="tile-tag">Avg order latency</div>
-                <div class="tile-pill">Globally distributed nodes</div>
-              </div>
-
-              <div class="tile">
-                <div class="tile-label">RISK · SAFETY</div>
-                <div class="tile-main">Proof-of-Reserves</div>
-                <div class="tile-tag tile-positive">100% backed</div>
-                <div class="tile-pill">View on-chain attestations</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-left">
-        <span class="footer-dot"></span>
-        <span>CyberEx β — Tasarım aşamasında. Yakında gerçek zamanlı market verileri ve Web3 entegrasyonu.</span>
-      </div>
-      <div class="footer-links">
-        <a href="#status">Status</a>
-        <a href="#security">Security</a>
-        <a href="#terms">Terms</a>
-        <a href="#privacy">Privacy</a>
-      </div>
-    </footer>
+    <div class="bottom-text">
+      <span>🚀 Yakında hizmetinizde olacağız.</span>
+    </div>
   </div>
 
 </body>
