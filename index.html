@@ -1182,171 +1182,123 @@
       animate();
     })();
 
-    // Lottie Animation Loader
-    async function initLottieAnimation() {
+    // Lottie Animation Loader - Basitleştirilmiş ve Güvenilir Versiyon
+    function initLottieAnimation() {
       const lottieContainer = document.getElementById('lottie-animation');
       const canvas = document.getElementById('cryptoCanvas');
       
       if (!lottieContainer) {
-        console.error('Lottie container not found');
+        console.error('❌ Lottie container not found');
+        if (canvas) canvas.style.display = 'block';
+        return;
+      }
+      
+      // Lottie kütüphanesi kontrolü
+      if (typeof lottie === 'undefined') {
+        console.error('❌ Lottie library not loaded');
         if (canvas) canvas.style.display = 'block';
         return;
       }
       
       // Lottie animation path - JSON dosyanızın yolu
-      // Mevcut dosyalar: bitcoincryptocurrencycity.json, bitcoinloader.json, cryptobitcoin.json, 
-      // cryptocoins.json, cryptophone.json, welcome.json, loadingcrypto.json
-      const lottiePath = 'cryptobitcoin.json'; // Ana animasyon
-      
-      // Lottie kütüphanesi kontrolü
-      if (typeof lottie === 'undefined') {
-        console.error('Lottie library not loaded');
-        if (canvas) canvas.style.display = 'block';
-        return;
-      }
+      const lottiePath = 'cryptobitcoin.json';
       
       try {
-        let animationData = null;
-        let usePath = false;
-        
-        // Önce fetch ile JSON'u yüklemeyi dene (HTTP/HTTPS için)
-        const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-        if (isDev) console.log('🔄 Attempting to load JSON:', lottiePath);
-        
-        try {
-          const response = await fetch(lottiePath, {
-            method: 'GET',
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
-          
-          if (isDev) console.log('📡 Fetch response status:', response.status, response.statusText);
-          
-          if (response.ok) {
-            animationData = await response.json();
-            if (isDev) {
-              console.log('✅ JSON loaded via fetch successfully');
-              console.log('📊 Animation data keys:', Object.keys(animationData));
-            }
-          } else {
-            if (isDev) console.warn('⚠️ Fetch response not OK:', response.status);
-            usePath = true;
-          }
-        } catch (fetchError) {
-          if (isDev) {
-            console.warn('⚠️ Fetch failed, will try path method:', fetchError.message);
-            console.warn('📝 Error details:', fetchError);
-          }
-          usePath = true;
-        }
-        
-        // Animasyon yükleme seçenekleri
-        const animOptions = {
+        // Lottie animasyonunu direkt path ile yükle (en güvenilir yöntem)
+        const anim = lottie.loadAnimation({
           container: lottieContainer,
           renderer: 'svg',
           loop: true,
-          autoplay: true
-        };
+          autoplay: true,
+          path: lottiePath
+        });
         
-        // JSON data varsa direkt kullan, yoksa path kullan
-        if (animationData && !usePath) {
-          if (isDev) console.log('🎬 Using animationData (loaded via fetch)');
-          animOptions.animationData = animationData;
-        } else {
-          if (isDev) console.log('🎬 Using path method:', lottiePath);
-          animOptions.path = lottiePath;
-        }
-        
-        if (isDev) {
-          console.log('🚀 Loading Lottie animation with options:', {
-            container: animOptions.container ? 'found' : 'not found',
-            renderer: animOptions.renderer,
-            hasAnimationData: !!animOptions.animationData,
-            path: animOptions.path || 'none'
-          });
-        }
-        
-        // Lottie animasyonunu yükle
-        const anim = lottie.loadAnimation(animOptions);
-        
-        // Animasyon yüklendiğinde
+        // Başarılı yükleme
         anim.addEventListener('data_ready', () => {
-          if (isDev) console.log('✅ Lottie animation loaded successfully');
+          console.log('✅ Lottie animation loaded successfully');
           if (canvas) canvas.style.display = 'none';
           lottieContainer.style.opacity = '1';
         });
         
-        // Animasyon başladığında
+        // DOM hazır
         anim.addEventListener('DOMLoaded', () => {
-          if (isDev) console.log('✅ Lottie animation DOM loaded');
+          console.log('✅ Lottie animation DOM loaded');
         });
         
-        // Hata durumunda fallback canvas göster
+        // Hata durumu
         anim.addEventListener('data_failed', (error) => {
-          if (isDev) {
-            console.error('❌ Lottie animation failed:', error);
-            console.warn('💡 TIP: Local server kullanın (VS Code Live Server veya Python http.server)');
-          }
+          console.error('❌ Lottie animation failed:', error);
           if (canvas) canvas.style.display = 'block';
         });
         
-        // JSON yükleme hatası
+        // Config hazır
         anim.addEventListener('config_ready', () => {
-          if (isDev) console.log('✅ Lottie config ready');
+          console.log('✅ Lottie config ready');
         });
         
-        // Responsive için resize
+        // Segment hatası
+        anim.addEventListener('segmentStart', () => {
+          console.log('✅ Lottie segment started');
+        });
+        
+        // Responsive resize
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-          if (anim) anim.resize();
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            if (anim && anim.resize) {
+              anim.resize();
+            }
+          }, 250);
         });
         
-        // Global erişim için
+        // Global erişim
         window.lottieAnim = anim;
         
       } catch (error) {
         console.error('❌ Error loading Lottie animation:', error);
-        console.warn('💡 TIP: Local server kullanın veya JSON dosyasını kontrol edin');
         if (canvas) canvas.style.display = 'block';
       }
     }
     
-    // DOM yüklendiğinde veya Lottie kütüphanesi hazır olduğunda çalıştır
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        // Lottie kütüphanesi yüklenmesini bekle
-        if (typeof lottie !== 'undefined') {
-          initLottieAnimation();
-        } else {
-          // Lottie yüklenene kadar bekle
-          const checkLottie = setInterval(() => {
-            if (typeof lottie !== 'undefined') {
-              clearInterval(checkLottie);
-              initLottieAnimation();
-            }
-          }, 100);
-          
-          // 5 saniye sonra timeout
-          setTimeout(() => {
-            clearInterval(checkLottie);
-            if (typeof lottie === 'undefined') {
-              console.error('Lottie library failed to load');
-              const canvas = document.getElementById('cryptoCanvas');
-              if (canvas) canvas.style.display = 'block';
-            }
-          }, 5000);
-        }
-      });
-    } else {
-      // DOM zaten yüklüyse
-      if (typeof lottie !== 'undefined') {
+    // Lottie kütüphanesi ve DOM hazır olduğunda çalıştır
+    function waitForLottie() {
+      if (typeof lottie !== 'undefined' && document.readyState !== 'loading') {
         initLottieAnimation();
       } else {
-        window.addEventListener('load', () => {
-          setTimeout(initLottieAnimation, 100);
-        });
+        // Lottie yüklenmesini bekle
+        let attempts = 0;
+        const maxAttempts = 50; // 5 saniye
+        
+        const checkInterval = setInterval(() => {
+          attempts++;
+          
+          if (typeof lottie !== 'undefined' && document.readyState !== 'loading') {
+            clearInterval(checkInterval);
+            initLottieAnimation();
+          } else if (attempts >= maxAttempts) {
+            clearInterval(checkInterval);
+            console.error('❌ Lottie library timeout');
+            const canvas = document.getElementById('cryptoCanvas');
+            if (canvas) canvas.style.display = 'block';
+          }
+        }, 100);
       }
     }
+    
+    // Sayfa yüklendiğinde başlat
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', waitForLottie);
+    } else {
+      waitForLottie();
+    }
+    
+    // Window load event'i de kontrol et
+    window.addEventListener('load', () => {
+      if (typeof lottie !== 'undefined' && !window.lottieAnim) {
+        initLottieAnimation();
+      }
+    });
 
     // Crypto Animation Canvas - Hex Grid + 3D Bitcoin + Circuit Pattern (Fallback)
     (function() {
