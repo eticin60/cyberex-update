@@ -164,7 +164,7 @@ CyberEx Wallet, MetaMask uyumlu Web3 provider sağlar. Web siteleri `window.ethe
 
 ## GitHub
 
-Proje GitHub'da: [CyberEx Wallet Extension](https://github.com/eticin60/CyberEx-Wallet-Extension)
+Proje GitHub'da: [CyberEx Repository](https://github.com/eticin60/CyberEx/tree/main/web3extension)
 
 ## Katkıda Bulunma
 
@@ -178,7 +178,19 @@ Proje GitHub'da: [CyberEx Wallet Extension](https://github.com/eticin60/CyberEx-
 
 MIT License - Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
-## Lisans
+## 🔗 İlgili Projeler
 
-Bu proje özel bir projedir.
+- **CyberEx Web3 Wallet**: Web tabanlı cüzdan uygulaması - [web3wallet](../web3wallet/README.md)
+- **CyberEx Mobile**: Mobil uygulama (Yakında)
+
+## 📞 Destek
+
+Sorularınız veya sorunlarınız için:
+- 📧 Email: support@cyberex.io
+- 💬 GitHub Issues: [Issues](https://github.com/eticin60/CyberEx/issues)
+- 📖 Documentation: [docs.cyberex.io](https://docs.cyberex.io)
+
+---
+
+**CyberEx Wallet Extension** - Chrome, Edge ve Opera için güçlü Web3 cüzdan eklentisi.
 
