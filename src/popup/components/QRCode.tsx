@@ -27,3 +27,4 @@ const QRCodeComponent: React.FC<QRCodeProps> = ({ value, size = 200 }) => {
 
 export default QRCodeComponent;
 
+

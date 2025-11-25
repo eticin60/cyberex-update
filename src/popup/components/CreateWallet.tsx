@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { WalletManager } from '../../services/walletManager';
 
 interface CreateWalletProps {
@@ -12,6 +12,14 @@ const CreateWallet: React.FC<CreateWalletProps> = ({ onNavigate, onWalletCreated
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState<'form' | 'backup'>('form');
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const container = document.querySelector('.create-wallet-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
+  }, []);
+
   const handleCreate = async () => {
     setLoading(true);
     try {
@@ -20,8 +28,9 @@ const CreateWallet: React.FC<CreateWalletProps> = ({ onNavigate, onWalletCreated
         setMnemonic(wallet.mnemonic);
         setStep('backup');
         await WalletManager.setCurrentWallet(wallet.address);
+        setLoading(false);
       } else {
-        throw new Error('Cüzdan oluşturulamadı');
+        throw new Error('Cüzdan oluşturulamadı - mnemonic alınamadı');
       }
     } catch (error: any) {
       console.error('Create wallet error:', error);

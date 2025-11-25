@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { WalletManager } from '../../services/walletManager';
 
 interface ImportWalletProps {
@@ -13,6 +13,14 @@ const ImportWallet: React.FC<ImportWalletProps> = ({ onNavigate, onWalletImporte
   const [privateKey, setPrivateKey] = useState('');
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const container = document.querySelector('.import-wallet-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
+  }, []);
+
   const handleImport = async () => {
     setLoading(true);
     try {
@@ -22,7 +30,14 @@ const ImportWallet: React.FC<ImportWalletProps> = ({ onNavigate, onWalletImporte
           setLoading(false);
           return;
         }
-        const wallet = await WalletManager.importWalletFromMnemonic(mnemonic.trim(), name || undefined);
+        // Mnemonic kelime sayısını kontrol et
+        const words = mnemonic.trim().split(/\s+/);
+        if (words.length !== 12 && words.length !== 24) {
+          alert('Mnemonic phrase 12 veya 24 kelime olmalıdır');
+          setLoading(false);
+          return;
+        }
+        const wallet = await WalletManager.importWalletFromMnemonic(mnemonic, name || undefined);
         await WalletManager.setCurrentWallet(wallet.address);
       } else {
         if (!privateKey.trim()) {
@@ -30,7 +45,17 @@ const ImportWallet: React.FC<ImportWalletProps> = ({ onNavigate, onWalletImporte
           setLoading(false);
           return;
         }
-        const wallet = await WalletManager.importWalletFromPrivateKey(privateKey.trim(), name || undefined);
+        // Private key formatını kontrol et ve normalize et
+        let key = privateKey.trim();
+        if (!key.startsWith('0x')) {
+          key = '0x' + key;
+        }
+        if (key.length !== 66) {
+          alert('Private key geçersiz format. 64 hex karakter (0x ile birlikte 66 karakter) olmalıdır');
+          setLoading(false);
+          return;
+        }
+        const wallet = await WalletManager.importWalletFromPrivateKey(key, name || undefined);
         await WalletManager.setCurrentWallet(wallet.address);
       }
       onWalletImported();

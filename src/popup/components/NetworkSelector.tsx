@@ -43,8 +43,21 @@ const NetworkSelector: React.FC<NetworkSelectorProps> = ({ onNetworkChange }) =>
     <div className="network-selector">
       <button className="network-btn" onClick={() => setIsOpen(!isOpen)}>
         <div className="network-info">
-          <span className="network-name">{currentNetwork.name}</span>
-          <span className="network-chain-id">Chain ID: {currentNetwork.chainId}</span>
+          {currentNetwork.icon && (
+            <img 
+              src={currentNetwork.icon} 
+              alt={currentNetwork.name}
+              className="network-icon"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+          )}
+          <div className="network-text">
+            <span className="network-name">{currentNetwork.name}</span>
+            <span className="network-chain-id">Chain ID: {currentNetwork.chainId}</span>
+          </div>
         </div>
         <span className="network-arrow">{isOpen ? '▲' : '▼'}</span>
       </button>
@@ -58,8 +71,21 @@ const NetworkSelector: React.FC<NetworkSelectorProps> = ({ onNetworkChange }) =>
               onClick={() => handleNetworkSelect(network)}
             >
               <div className="network-item-info">
-                <span className="network-item-name">{network.name}</span>
-                <span className="network-item-symbol">{network.nativeCurrency.symbol}</span>
+                {network.icon && (
+                  <img 
+                    src={network.icon} 
+                    alt={network.name}
+                    className="network-item-icon"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                )}
+                <div className="network-item-text">
+                  <span className="network-item-name">{network.name}</span>
+                  <span className="network-item-symbol">{network.nativeCurrency.symbol}</span>
+                </div>
               </div>
               {currentNetwork.chainId === network.chainId && (
                 <span className="network-check">✓</span>

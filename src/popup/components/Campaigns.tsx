@@ -11,6 +11,11 @@ const Campaigns: React.FC<CampaignsProps> = ({ onNavigate }) => {
   const [activeTab, setActiveTab] = useState<'campaigns' | 'announcements'>('campaigns');
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    const container = document.querySelector('.campaigns-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
     loadData();
   }, []);
 
@@ -140,4 +145,5 @@ const Campaigns: React.FC<CampaignsProps> = ({ onNavigate }) => {
 };
 
 export default Campaigns;
+
 

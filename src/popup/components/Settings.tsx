@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { WalletManager } from '../../services/walletManager';
 
 interface SettingsProps {
@@ -7,6 +7,14 @@ interface SettingsProps {
 
 const Settings: React.FC<SettingsProps> = ({ onNavigate }) => {
   const [exportData, setExportData] = useState<string | null>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const container = document.querySelector('.settings-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
+  }, []);
 
   const handleExportWallet = async () => {
     const wallets = await WalletManager.getWallets();
@@ -43,6 +51,14 @@ const Settings: React.FC<SettingsProps> = ({ onNavigate }) => {
 
       <div className="settings-list">
         <div className="settings-item">
+          <h3>Token Yönetimi</h3>
+          <p>Token ekleyin, kaldırın veya özel token ekleyin</p>
+          <button className="btn-secondary" onClick={() => onNavigate('tokenManagement')}>
+            Token Yönetimi
+          </button>
+        </div>
+
+        <div className="settings-item">
           <h3>Yedekleme</h3>
           <p>Cüzdan verilerinizi yedekleyin</p>
           <button className="btn-secondary" onClick={handleExportWallet}>
@@ -69,4 +85,5 @@ const Settings: React.FC<SettingsProps> = ({ onNavigate }) => {
 };
 
 export default Settings;
+
 

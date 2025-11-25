@@ -48,3 +48,4 @@ console.log('\n✅ Tüm icon dosyaları oluşturuldu!');
 console.log('\nNot: PNG formatına dönüştürmek için bir SVG to PNG converter kullanabilirsiniz.');
 console.log('Önerilen: https://cloudconvert.com/svg-to-png veya ImageMagick');
 
+

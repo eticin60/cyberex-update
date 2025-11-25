@@ -18,16 +18,20 @@ export class WalletManager {
   }
   
   static async importWalletFromMnemonic(mnemonic: string, name?: string): Promise<Wallet> {
-    if (!bip39.validateMnemonic(mnemonic)) {
+    // Mnemonic'i normalize et (boşlukları temizle, küçük harfe çevir)
+    const normalizedMnemonic = mnemonic.trim().toLowerCase().replace(/\s+/g, ' ');
+    
+    if (!bip39.validateMnemonic(normalizedMnemonic)) {
       throw new Error('Geçersiz mnemonic phrase');
     }
     
-    const wallet = ethers.Wallet.fromPhrase(mnemonic);
+    // Ethers v6'da HDNodeWallet kullan
+    const wallet = ethers.HDNodeWallet.fromPhrase(normalizedMnemonic);
     
     const walletData: Wallet = {
       address: wallet.address,
       privateKey: wallet.privateKey,
-      mnemonic: mnemonic,
+      mnemonic: normalizedMnemonic,
       name: name || `Cüzdan ${Date.now()}`
     };
     
@@ -37,7 +41,9 @@ export class WalletManager {
   
   static async importWalletFromPrivateKey(privateKey: string, name?: string): Promise<Wallet> {
     try {
-      const wallet = new ethers.Wallet(privateKey);
+      // Private key'i normalize et (0x prefix kontrolü)
+      const normalizedKey = privateKey.trim();
+      const wallet = new ethers.Wallet(normalizedKey);
       
       const walletData: Wallet = {
         address: wallet.address,
@@ -47,8 +53,9 @@ export class WalletManager {
       
       await this.saveWallet(walletData);
       return walletData;
-    } catch (error) {
-      throw new Error('Geçersiz private key');
+    } catch (error: any) {
+      console.error('Private key import error:', error);
+      throw new Error('Geçersiz private key: ' + (error.message || 'Bilinmeyen hata'));
     }
   }
   
@@ -114,4 +121,5 @@ export class WalletManager {
     return new ethers.Wallet(wallet.privateKey, provider);
   }
 }
+
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Wallet } from '../../services/walletManager';
 import { WalletManager } from '../../services/walletManager';
 import { ethers } from 'ethers';
@@ -13,6 +13,14 @@ const Send: React.FC<SendProps> = ({ currentWallet, onNavigate }) => {
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
   const [txHash, setTxHash] = useState<string | null>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const container = document.querySelector('.send-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
+  }, []);
 
   const handleSend = async () => {
     if (!currentWallet) {
@@ -130,4 +138,5 @@ const Send: React.FC<SendProps> = ({ currentWallet, onNavigate }) => {
 };
 
 export default Send;
+
 

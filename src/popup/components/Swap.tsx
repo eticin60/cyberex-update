@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Wallet } from '../../services/walletManager';
 import { WalletManager } from '../../services/walletManager';
 import { NetworkManager } from '../../services/networkManager';
@@ -13,6 +13,14 @@ interface SwapProps {
 
 const Swap: React.FC<SwapProps> = ({ currentWallet, onNavigate }) => {
   const [fromToken, setFromToken] = useState('ETH');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const container = document.querySelector('.swap-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
+  }, []);
   const [toToken, setToToken] = useState('USDT');
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);

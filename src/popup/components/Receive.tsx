@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import QRCodeComponent from './QRCode';
 import { Wallet } from '../../services/walletManager';
 
@@ -8,6 +8,13 @@ interface ReceiveProps {
 }
 
 const Receive: React.FC<ReceiveProps> = ({ currentWallet, onNavigate }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const container = document.querySelector('.receive-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
+  }, []);
   const copyToClipboard = () => {
     if (currentWallet) {
       navigator.clipboard.writeText(currentWallet.address);

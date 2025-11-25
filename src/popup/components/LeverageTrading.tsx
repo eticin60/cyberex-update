@@ -13,6 +13,14 @@ const LeverageTrading: React.FC<LeverageTradingProps> = ({ currentWallet, onNavi
   const [showNewPosition, setShowNewPosition] = useState(false);
   const [coin, setCoin] = useState('ETH');
   const [positionType, setPositionType] = useState<'long' | 'short'>('long');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const container = document.querySelector('.leverage-trading-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
+  }, []);
   const [leverage, setLeverage] = useState(10);
   const [amount, setAmount] = useState('');
   const [collateral, setCollateral] = useState('');
@@ -238,4 +246,5 @@ const LeverageTrading: React.FC<LeverageTradingProps> = ({ currentWallet, onNavi
 };
 
 export default LeverageTrading;
+
 

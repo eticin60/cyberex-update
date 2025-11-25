@@ -58,3 +58,4 @@ echo "2. README.md'yi güncelleyin"
 echo "3. Icon dosyalarını ekleyin: npm run generate-icons-png"
 echo "4. Projeyi derleyin: npm run build"
 
+

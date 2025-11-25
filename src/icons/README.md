@@ -14,3 +14,4 @@ Icon'ları oluşturmak için:
 2. Veya online icon generator kullanın
 3. Dosyaları bu klasöre kopyalayın
 
+

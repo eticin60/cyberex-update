@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Wallet } from '../../services/walletManager';
 
 interface WalletListProps {
@@ -16,6 +16,14 @@ const WalletList: React.FC<WalletListProps> = ({
   onWalletChange,
   onWalletDelete
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const container = document.querySelector('.wallet-list-container');
+    if (container) {
+      container.scrollTop = 0;
+    }
+  }, []);
+
   const handleDelete = async (address: string, e: React.MouseEvent) => {
     e.stopPropagation();
     if (confirm('Bu cüzdanı silmek istediğinize emin misiniz?')) {
@@ -85,4 +93,5 @@ const WalletList: React.FC<WalletListProps> = ({
 };
 
 export default WalletList;
+
 
