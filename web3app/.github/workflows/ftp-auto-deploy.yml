@@ -2,7 +2,7 @@ name: Auto Deploy to cyberex.com.tr/web3app
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
@@ -59,5 +59,8 @@ jobs:
             **/UI_*
             **/OTOMATIK_*
             **/.ftp_creds.txt
+            **/LICENSE
+            **/CNAME
+            **/nginx.conf
 
 
