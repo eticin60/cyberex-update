@@ -889,9 +889,9 @@
 
     <!-- Bottom Footer -->
     <div class="border-t border-slate-800/50 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[0.7rem] text-slate-400">
-      <div data-i18n="footer.copyright">© <span id="year"></span> CyberEX. Tüm hakları saklıdır.</div>
-      <div class="text-center md:text-right" data-i18n="footer.powered">
-        Analiz sadece • Yatırım tavsiyesi değildir • <span class="text-cyan-300">CyberEx</span> tarafından desteklenmektedir
+      <div><span data-i18n="footer.copyright">© <span id="year"></span> CyberEX. Tüm hakları saklıdır.</span></div>
+      <div class="text-center md:text-right">
+        <span data-i18n="footer.powered">Analiz sadece • Yatırım tavsiyesi değildir • </span><span class="text-cyan-300">CyberEx</span><span data-i18n="footer.poweredSuffix"> tarafından desteklenmektedir</span>
       </div>
     </div>
   </div>
@@ -931,8 +931,9 @@
         disclaimer: "Sorumluluk Reddi",
         connect: "Bağlantı",
         connectDesc: "Güvenli, hızlı ve güvenilir kripto işlemleri. CyberEx Platform ve CyberEx Wallet ile desteklenmektedir.",
-        copyright: "© {year} CyberEX. Tüm hakları saklıdır.",
-        powered: "Analiz sadece • Yatırım tavsiyesi değildir • CyberEx tarafından desteklenmektedir"
+        copyright: "© ",
+        powered: "Analiz sadece • Yatırım tavsiyesi değildir • ",
+        poweredSuffix: " tarafından desteklenmektedir"
       }
     },
     en: {
@@ -964,8 +965,9 @@
         disclaimer: "Disclaimer",
         connect: "Connect",
         connectDesc: "Secure, fast, and reliable crypto transactions. Powered by CyberEx Platform and CyberEx Wallet.",
-        copyright: "© {year} CyberEX. All rights reserved.",
-        powered: "Analysis only • No investment advice • Powered by CyberEx"
+        copyright: "© ",
+        powered: "Analysis only • No investment advice • ",
+        poweredSuffix: "Powered by "
       }
     }
   };
@@ -993,11 +995,7 @@
       }
       
       if (value) {
-        if (typeof value === 'string' && value.includes('{year}')) {
-          el.textContent = value.replace('{year}', new Date().getFullYear());
-        } else {
-          el.textContent = value;
-        }
+        el.textContent = value;
       }
     });
   }
