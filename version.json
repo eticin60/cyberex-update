@@ -1,10 +1,14 @@
 {
-  "versionCode": 25,
-  "versionName": "1.2.5",
-  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.2.5.apk",
+  "versionCode": 27,
+  "versionName": "1.2.7",
+  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.2.7.apk",
   "whatsNew": [
-    "Hata düzeltmeleri ve performans iyileştirmeleri",
-    "UI hataları giderildi,Chat hataları giderildi.",
-    "Yapay zeka modellemesine yeni özellikler eklendi"
+    "Implemented Dynamic Deposit Address system for TRC20, BEP20, and ERC20 networks.",
+    "Added Real-time QR Code generation for all digital asset deposit addresses.",
+    "Integrated Enterprise Fiat Gateway for TRY and USD bank transfers with automated IBAN verification.",
+    "Launched Credit Card on-ramp support via MoonPay, Banxa, Simplex, Sardine, and Mercuryo.",
+    "Complete UI/UX overhaul with 32dp oval dialogs, glassmorphism, and neon aesthetic.",
+    "Resolved critical application crashes in the Deposit and Withdrawal modules.",
+    "Rebranded project identity to CyberEx Kripto Para A.Ş. with enhanced documentation."
   ]
 }
