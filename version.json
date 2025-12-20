@@ -1,7 +1,7 @@
 {
-  "versionCode": 29,
-  "versionName": "1.2.9",
-  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.2.9.apk",
+  "versionCode": 30,
+  "versionName": "1.3.0",
+  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.3.0.apk",
   "whatsNew": [
     "Gelişmiş KYC Sistemi: Manuel veri girişi, kimlik tarama ve ML Kit destekli canlılık kontrolü eklendi.",
     "Profil Sayfası Yenilendi: Modern Glassmorphism tasarımı, VIP rozetleri ve düzenlenmiş menü yapısı.",
