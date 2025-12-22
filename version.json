@@ -1,14 +1,18 @@
 {
-  "versionCode": 32,
-  "versionName": "1.3.2",
-  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.3.2.apk",
+  "versionCode": 33,
+  "versionName": "1.3.3",
+  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.3.3.apk",
   "whatsNew": [
     "Gelişmiş KYC Sistemi: Manuel veri girişi, kimlik tarama ve ML Kit destekli canlılık kontrolü eklendi.",
+    "Sosyal Giriş Desteği: Google, Apple ve Facebook hesaplarıyla hızlı ve güvenli giriş yapabilme özelliği eklendi.",
     "Profil Sayfası Yenilendi: Modern Glassmorphism tasarımı, VIP rozetleri ve düzenlenmiş menü yapısı.",
     "Yatırma ve Çekme Limitleri: Kripto, TL ve USD için günlük, haftalık ve aylık limitler 'Limitler' sekmesine eklendi.",
     "Yapay Zeka Fikret (Gemini): İnternet arama (hava durumu, saat vb.) ve ekran paylaşımı/analizi yetenekleri eklendi.",
     "Vadeli İşlemler (Futures) İyileştirmeleri: Dinamik emir defteri, hassasiyet ayarları ve profesyonel hesap makinesi eklendi.",
     "Google ML Kit Entegrasyonu: Kimlik bilgilerini otomatik okuma ve yüz algılama ile güvenlik artırıldı.",
-    "Kritik Hatalar Giderildi: Uygulama genelindeki çökme sorunları ve tema uyumsuzlukları tamamen çözüldü."
+    "UI/UX İyileştirmeleri: Kullanım şartları ve gizlilik politikası dialog'larında okunabilirlik artırıldı, arka plan düzeltmeleri yapıldı.",
+    "Kod Kalitesi İyileştirmeleri: Coroutine yönetimi, Firestore işlemleri ve erişilebilirlik desteği optimize edildi.",
+    "Performans Optimizasyonları: Asenkron işlemler ve veri yönetimi iyileştirilerek uygulama hızı artırıldı.",
+    "Kritik Hatalar Giderildi: Uygulama genelindeki çökme sorunları, tema uyumsuzlukları ve null pointer hataları tamamen çözüldü."
   ]
 }
