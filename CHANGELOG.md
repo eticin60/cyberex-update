@@ -13,10 +13,92 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - iOS version
 - Apple Watch companion app
 - Desktop application (Windows/Mac/Linux)
+- Hardware wallet integration
+- Advanced trading algorithms
 
 ---
 
-## [1.0.0-beta] - 2026-01-18
+## [1.3.9] - 2026-01-25
+
+### 🎉 Major Feature Update
+
+### Added
+#### Advanced KYC System
+- Manual data entry for identity verification
+- ID card/passport scanning with ML Kit
+- Liveness detection to prevent spoofing
+- Enhanced security with face biometrics
+
+#### Social Authentication
+- Google Sign-In integration
+- Apple Sign-In integration
+- Facebook Login support
+- Seamless account linking
+
+#### Profile & UI Enhancements
+- Modern Glassmorphism design for profile page
+- VIP badge system for premium users
+- Reorganized menu structure for better UX
+- Customizable profile avatars
+
+#### Trading Limits
+- Daily, weekly, and monthly deposit/withdrawal limits
+- Separate limits for Crypto, TL (Turkish Lira), and USD
+- Real-time limit tracking in "Limits" section
+- Automatic limit reset timers
+
+#### AI Assistant (Gemini) Improvements
+- Internet search capabilities (weather, time, news, etc.)
+- Screen sharing and analysis features
+- Enhanced conversation context
+- Improved response accuracy
+
+#### Futures Trading Enhancements
+- Dynamic order book with real-time updates
+- Precision/decimal place settings
+- Professional trading calculator
+- Advanced position management
+
+#### Google ML Kit Integration
+- Automatic ID text extraction
+- Face detection for KYC
+- Improved liveness checks
+- Enhanced security protocols
+
+### Changed
+- Improved UI/UX for Terms of Service dialogs
+- Enhanced Privacy Policy dialog readability
+- Background rendering optimizations
+- Better coroutine management in async operations
+
+### Fixed
+- 🐛 Critical app crashes resolved
+- 🐛 Theme inconsistencies fixed
+- 🐛 Null pointer exceptions eliminated
+- 🐛 Memory leaks patched
+- 🐛 UI alignment issues on various screen sizes
+- 🐛 Firestore transaction errors corrected
+
+### Security
+- Enhanced biometric authentication
+- Improved data encryption
+- Better session management
+- Secure credential storage
+
+### Performance
+- Faster app startup time
+- Optimized database queries
+- Reduced memory footprint
+- Smoother animations
+
+### Known Issues
+- ⚠️ TL Deposit service temporarily under investigation (Bank API integration)
+- ⚠️ TL Withdrawal service temporarily under investigation (Bank API integration)
+- ⚠️ KYC system undergoing maintenance (Algorithm updates)
+
+---
+
+## [1.0.0] - 2026-01-18
 
 ### 🎉 Initial Beta Release
 

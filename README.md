@@ -4,7 +4,7 @@
 
 ![CyberEx Logo](https://cyberex.com.tr/cyberex-logo.png)
 
-[![Version](https://img.shields.io/badge/version-1.0.0--beta-orange)](https://github.com/eticin60/cyberex-update)
+[![Version](https://img.shields.io/badge/version-1.3.9-orange)](https://github.com/eticin60/cyberex-update)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://www.android.com)
 [![Website](https://img.shields.io/badge/website-cyberex.com.tr-cyan)](https://cyberex.com.tr)
@@ -37,11 +37,17 @@ This repository hosts the **official Android APK files** for the CyberEx mobile 
 
 ## 📥 Download
 
-### Latest Beta Version
+### Latest Version
 
 | Version | Release Date | Size | Download |
 |---------|--------------|------|----------|
-| v1.0.0-beta | 2026-01-18 | ~45 MB | [CyberEx-v1.0.apk](https://github.com/eticin60/cyberex-update/releases/latest) |
+| v1.3.9 | 2026-01-25 | ~235 MB | [CyberEx-v1.3.9.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.3.9.apk) |
+
+### Previous Versions
+
+| Version | Release Date | Size | Download |
+|---------|--------------|------|----------|
+| v1.0.0 | 2026-01-18 | ~45 MB | [CyberEx-v1.0.0.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.0.0.apk) |
 
 ### Installation Instructions
 
@@ -104,7 +110,38 @@ This repository hosts the **official Android APK files** for the CyberEx mobile 
 
 ## 📋 Changelog
 
-### v1.0.0-beta (2026-01-18)
+### v1.3.9 (2026-01-25) - Latest
+#### 🚀 Major Update
+
+**New Features**
+- ✅ **Advanced KYC System**: Manual data entry, ID scanning, and ML Kit-powered liveness detection
+- ✅ **Social Login**: Quick sign-in with Google, Apple, and Facebook accounts  
+- ✅ **Profile Page Redesign**: Modern Glassmorphism design with VIP badges
+- ✅ **Deposit/Withdrawal Limits**: Daily, weekly, and monthly limits for Crypto, TL, and USD
+- ✅ **AI Fikret (Gemini)**: Internet search (weather, time, etc.) and screen sharing/analysis
+- ✅ **Futures Improvements**: Dynamic order book, precision settings, and professional calculator
+- ✅ **Google ML Kit Integration**: Automatic ID reading and face detection for enhanced security
+
+**Improvements**
+- ⚡ UI/UX enhancements in terms of service and privacy policy dialogs
+- ⚡ Code quality improvements in coroutine management and Firestore operations
+- ⚡ Performance optimizations in async operations and data management
+- ⚡ Accessibility support improvements
+
+**Bug Fixes**
+- 🐛 Fixed critical app crashes across the application
+- 🐛 Resolved theme inconsistencies
+- 🐛 Fixed null pointer exceptions
+- 🐛 Background rendering corrections
+
+**Known Issues**
+- ⚠️ TL Deposit service under investigation
+- ⚠️ TL Withdrawal service under investigation
+- ⚠️ KYC system maintenance ongoing
+
+---
+
+### v1.0.0 (2026-01-18)
 #### 🚀 Initial Beta Release
 - ✅ Complete trading engine (Spot & Futures)
 - ✅ Wallet management with TL support
