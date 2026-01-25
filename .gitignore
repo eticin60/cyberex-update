@@ -1,0 +1,32 @@
+# CyberEx Update Repository
+# Official APK hosting for CyberEx Android Application
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.log
+
+# Ignore checksum files (generated)
+*.sha256
+*.md5
+
+# Keep APK files
+!*.apk
+
+# Keep documentation
+!README.md
+!LICENSE
+!CHANGELOG.md
+!SECURITY.md
