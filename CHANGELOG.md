@@ -18,6 +18,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.4.0] - 2026-01-26
+
+### 🚀 Legal & Infrastructure Update
+
+### Changed
+- **Legal Documentation**: Complete overhaul of Terms, Privacy, Risk, Security, and KVKK documents to professional standards.
+- **QR Code System**: Updated dynamic QR codes to point to the correct v1.4.0 APK source.
+- **Web Portal**: Updated all download links and version badges to reflect the latest beta status.
+- **Help Center**: Expanded FAQ content and improved category layout.
+
+### Fixed
+- Fixed outdated APK download links in the landing page.
+- Fixed version mismatch in footer badges.
+
+---
+
 ## [1.3.9] - 2026-01-25
 
 ### 🎉 Major Feature Update

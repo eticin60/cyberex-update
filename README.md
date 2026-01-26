@@ -4,7 +4,7 @@
 
 ![CyberEx Logo](https://cyberex.com.tr/cyberex-logo.png)
 
-[![Version](https://img.shields.io/badge/version-1.3.9-orange)](https://github.com/eticin60/cyberex-update)
+[![Version](https://img.shields.io/badge/version-1.4.0-orange)](https://github.com/eticin60/cyberex-update)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://www.android.com)
 [![Website](https://img.shields.io/badge/website-cyberex.com.tr-cyan)](https://cyberex.com.tr)
@@ -41,7 +41,7 @@ This repository hosts the **official Android APK files** for the CyberEx mobile 
 
 | Version | Release Date | Size | Download |
 |---------|--------------|------|----------|
-| v1.3.9 | 2026-01-25 | ~235 MB | [CyberEx-v1.3.9.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.3.9.apk) |
+| v1.4.0 | 2026-01-26 | ~235 MB | [CyberEx-v1.4.0.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.0.apk) |
 
 ### Previous Versions
 
@@ -110,10 +110,11 @@ This repository hosts the **official Android APK files** for the CyberEx mobile 
 
 ## 📋 Changelog
 
-### v1.3.9 (2026-01-25) - Latest
+### v1.4.0 (2026-01-26) - Latest
 #### 🚀 Major Update
 
 **New Features**
+- ✅ **Legal Overhaul**: Renewed all legal documents (Terms, Risk, Security, KVKK).
 - ✅ **Advanced KYC System**: Manual data entry, ID scanning, and ML Kit-powered liveness detection
 - ✅ **Social Login**: Quick sign-in with Google, Apple, and Facebook accounts  
 - ✅ **Profile Page Redesign**: Modern Glassmorphism design with VIP badges
