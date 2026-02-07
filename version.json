@@ -3,6 +3,12 @@
   "versionName": "1.4.1",
   "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.1.apk",
   "whatsNew": [
+    "Platform İçi Transfer (P2P): Anlık ve sıfır komisyonlu kullanıcılar arası transfer özelliği eklendi.",
+    "MASAK Uyumu ve Güvenlik: Güvenliğiniz için 48 saatlik çekim kilidi ve ek güvenlik katmanları aktif edildi.",
+    "Kurumsal Dil Revizyonu: Uygulama genelindeki metinler profesyonel ve kurumsal terminolojiye uygun hale getirildi.",
+    "Gelişmiş Filtreleme: Geçmiş ve durum sayfalarına 'Yasal' kategori filtresi eklendi.",
+    "UI/UX İyileştirmeleri: Diyalog pencereleri, ekran kararması ve Material 3 uyumluluk sorunları giderildi.",
+    "Stabilite Güncellemeleri: KYC kampanya gösterim mantığı ve çeşitli performans iyileştirmeleri yapıldı.",
     "Gelişmiş KYC Sistemi: Manuel veri girişi, kimlik tarama ve ML Kit destekli canlılık kontrolü eklendi.",
     "Sosyal Giriş Desteği: Google, Apple ve Facebook hesaplarıyla hızlı ve güvenli giriş yapabilme özelliği eklendi.",
     "Profil Sayfası Yenilendi: Modern Glassmorphism tasarımı, VIP rozetleri ve düzenlenmiş menü yapısı.",

@@ -18,6 +18,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.4.1] - 2026-02-07
+
+### 🚀 Financial Ecosystem & Stability Update
+
+### Added
+- **P2P Internal Transfers**: Users can now send assets to each other instantly with zero fees within the platform.
+- **MASAK Security Compliance**: Implemented a mandatory 48-hour withdrawal lock for security compliance and user safety.
+- **Legal Categorization**: New "Legal" filter type added to the history and status pages of the web portal.
+
+### Changed
+- **Corporate Terminology**: Replaced informal labels (e.g., "Bakiye Yükleme") with corporate standards ("CyberEx" via Param).
+- **Dialog System**: Refactored `ComplianceDialogManager` to use `MaterialAlertDialogBuilder` and optimized interaction chains.
+- **Campaign Persistence**: KYC campaign dialog now remains active until stage completion, as per institutional requirements.
+
+### Fixed
+- Fixed screen dimming and overlay issues when multiple dialogs appear sequentially.
+- Resolved Material 3 theme incompatibility in custom transparent dialogs.
+- Corrected various text size and alignment issues in XML layouts.
+
+---
+
 ## [1.4.0] - 2026-01-26
 
 ### 🚀 Legal & Infrastructure Update
