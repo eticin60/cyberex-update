@@ -18,6 +18,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.4.2] - 2026-02-22
+
+### 🚀 Trading & Performance Update
+
+### Added
+- **Turbo Bot Optimization**: Enhanced the logic for manual trades to ensure accurate amount and leverage execution.
+- **Smart AI Thresholding**: Automated confidence levels based on the selected trading timeframe for improved strategy success.
+- **Live Market Integration**: Connected home screen analytics to real-time market data for accurate volatility tracking.
+- **Financial Synchronization**: Resolved issues with exchange rate fetching and balance consistency.
+- **Enhanced Access Control**: Modernized the security infrastructure for dynamic page management.
+
+### Fixed
+- Fixed internal logic conflicts during high-frequency trading data processing.
+- Resolved data mapping issues in the backend management layer.
+- Improved UI responsiveness and input field alignment for better user experience.
+
+---
+
 ## [1.4.1] - 2026-02-07
 
 ### 🚀 Financial Ecosystem & Stability Update
