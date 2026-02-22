@@ -4,7 +4,7 @@
 
 ![CyberEx Logo](https://cyberex.com.tr/cyberex-logo.png)
 
-[![Version](https://img.shields.io/badge/version-1.4.1-orange)](https://github.com/eticin60/cyberex-update)
+[![Version](https://img.shields.io/badge/version-1.4.2-orange)](https://github.com/eticin60/cyberex-update)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://www.android.com)
 [![Website](https://img.shields.io/badge/website-cyberex.com.tr-cyan)](https://cyberex.com.tr)
@@ -41,6 +41,7 @@ This repository hosts the **official Android APK files** for the CyberEx mobile 
 
 | Version | Release Date | Size | Download |
 |---------|--------------|------|----------|
+| v1.4.2 | 2026-02-22 | ~255 MB | [CyberEx-v1.4.2.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.2.apk) |
 | v1.4.1 | 2026-02-07 | ~245 MB | [CyberEx-v1.4.1.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.1.apk) |
 | v1.4.0 | 2026-01-26 | ~235 MB | [CyberEx-v1.4.0.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.0.apk) |
 
@@ -111,7 +112,24 @@ This repository hosts the **official Android APK files** for the CyberEx mobile 
 
 ## 📋 Changelog
 
-### v1.4.1 (2026-02-07) - Latest
+### v1.4.2 (2026-02-22) - Latest
+#### 🚀 Trading & Intelligence Update
+
+**New Features**
+- ✅ **Turbo Bot Optimization**: Enhanced logic for manual trade execution and leverage accuracy.
+- ✅ **Smart AI Thresholding**: Automated confidence levels based on selected timeframes.
+- ✅ **Live Market Analytics**: Real-time market cap charts and global metrics on home screen.
+- ✅ **Financial Sync**: Robust exchange rate tracking (USDT/TRY) via CoinGecko.
+- ✅ **Access Control**: Dynamic page management and security infrastructure updates.
+
+**Bug Fixes**
+- 🐛 Fixed internal logic conflicts during high-frequency data processing.
+- 🐛 Resolved data mapping issues in backend management layer.
+- 🐛 Improved UI responsiveness and input alignment.
+
+---
+
+### v1.4.1 (2026-02-07)
 #### 🚀 Feature & Stability Update
 
 **New Features**
