@@ -1,7 +1,7 @@
 {
-  "versionCode": 42,
-  "versionName": "1.4.2",
-  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.2.apk",
+  "versionCode": 43,
+  "versionName": "1.4.3",
+  "apkUrl": "https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.3.apk",
   "whatsNew": [
     "Turbo Bot Geliştirmeleri: Manuel işlemlerdeki hesaplama ve stabilite sorunları giderildi.",
     "Akıllı AI Desteği: Seçilen zaman dilimine göre otomatik yapay zeka güven eşiği optimizasyonu eklendi.",
