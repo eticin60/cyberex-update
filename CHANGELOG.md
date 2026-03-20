@@ -18,6 +18,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.4.3] - 2026-03-20
+
+### 🚀 Performance & Connectivity Update
+
+### Added
+- **Veri Kotası Optimizasyonu**: Uygulamanın veri tüketimi büyük ölçüde optimize edildi ve kota aşımı sorunları giderildi.
+- **Giriş Sorunu Düzeltildi**: Bazı durumlarda yaşanan "Unknown Error" giriş hatası çözüldü.
+- **Daha Hızlı Veri Akışı**: Haberler ve piyasa güncellemeleri artık çok daha verimli ve akıcı bir şekilde aktarılıyor.
+
+---
+
 ## [1.4.2] - 2026-02-22
 
 ### 🚀 Trading & Performance Update
