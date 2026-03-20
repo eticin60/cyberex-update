@@ -4,7 +4,7 @@
 
 ![CyberEx Logo](https://cyberex.com.tr/cyberex-logo.png)
 
-[![Version](https://img.shields.io/badge/version-1.4.2-orange)](https://github.com/eticin60/cyberex-update)
+[![Version](https://img.shields.io/badge/version-1.4.3-orange)](https://github.com/eticin60/cyberex-update)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android-green.svg)](https://www.android.com)
 [![Website](https://img.shields.io/badge/website-cyberex.com.tr-cyan)](https://cyberex.com.tr)
@@ -41,6 +41,7 @@ This repository hosts the **official Android APK files** for the CyberEx mobile 
 
 | Version | Release Date | Size | Download |
 |---------|--------------|------|----------|
+| v1.4.3 | 2026-03-20 | ~255 MB | [CyberEx-v1.4.3.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.3.apk) |
 | v1.4.2 | 2026-02-22 | ~255 MB | [CyberEx-v1.4.2.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.2.apk) |
 | v1.4.1 | 2026-02-07 | ~245 MB | [CyberEx-v1.4.1.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.1.apk) |
 | v1.4.0 | 2026-01-26 | ~235 MB | [CyberEx-v1.4.0.apk](https://github.com/eticin60/cyberex-update/raw/main/CyberEx-v1.4.0.apk) |
@@ -112,7 +113,17 @@ This repository hosts the **official Android APK files** for the CyberEx mobile 
 
 ## 📋 Changelog
 
-### v1.4.2 (2026-02-22) - Latest
+### v1.4.3 (2026-03-20) - Latest
+#### 🚀 Performance & Connectivity Update
+
+**New Features**
+- ✅ **Veri Kotası Optimizasyonu**: Uygulamanın veri tüketimi büyük ölçüde optimize edildi ve kota aşımı sorunları giderildi.
+- ✅ **Giriş Sorunu Düzeltildi**: Bazı durumlarda yaşanan "Unknown Error" giriş hatası çözüldü.
+- ✅ **Daha Hızlı Veri Akışı**: Haberler ve piyasa güncellemeleri artık çok daha verimli ve akıcı bir şekilde aktarılıyor.
+
+---
+
+### v1.4.2 (2026-02-22)
 #### 🚀 Trading & Intelligence Update
 
 **New Features**
